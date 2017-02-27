@@ -9,18 +9,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
   <script type="text/babel">
   class Square extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        value: null,
+      };
+    }
     render() {
       return (
-        <button className="square">
-          {/* TODO */}
+        <button className="square" onClick={() => this.setState({value: 'X'})}>
+            {this.state.value}
         </button>
       );
     }
   }
 
+
   class Board extends React.Component {
     renderSquare(i) {
-      return <Square />;
+      return <Square value={i} />;
     }
     render() {
       const status = 'Next player: X';
@@ -56,7 +63,7 @@
           </div>
           <div className="game-info">
             <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
+            <ol>{/* To Do */}</ol>
           </div>
         </div>
       );
